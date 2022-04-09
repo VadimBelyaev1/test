@@ -15,7 +15,7 @@
         <!--<p style="color: white">{{ city }}</p>-->
         <div class="select">
           <p2> Выбор ряда: </p2>
-          <select name="row_selection">
+          <select v-model="row_selection">
             <option selected></option>
             <option>1</option>
             <option>2</option>
@@ -28,7 +28,7 @@
             <option>9</option>
           </select>
           <p2> Выбор места: </p2>
-          <select name="place">
+          <select v-model="place">
             <option selected></option>
             <option>1</option>
             <option>2</option>
@@ -110,8 +110,29 @@
           </div>
         </div>
       </div>
+      <div v-if="isVisibleSucces" class="end">
+        <div class="buy">
+          <div class="ember">
+            <div class="about">
+              <p style="color: white">ИНФОРМАЦИЯ ПО БИЛЕТУ</p>
+            </div>
+            <div class="pos">
+              <p>
+                {{ city }} <br />
+                ДОМ КУЛЬТУРЫ <br />
+                {{ day }} <br />
+                РЯД {{ row_selection }} <br />
+                МЕСТО {{ place }}
+              </p>
+            </div>
+            <div class="rectangle send">
+              <p>Билет будет отправлен Вам на почту</p>
+            </div>
+          </div>
+          <div class="pickt"></div>
+        </div>
+      </div>
     </div>
-    <div v-if="isVisibleSucces" class="close"></div>
     <p v-on:click="doSomething" class="close">Закрыть</p>
   </div>
 </template>
@@ -119,7 +140,7 @@
 <script>
 export default {
   name: "forma",
-  props: ["city", "day"],
+  props: ["city", "day", "place", "row_selection"],
 
   data: function () {
     return {
@@ -153,7 +174,7 @@ export default {
 .foot {
   width: 1200px;
   height: 200px;
-  margin-bottom: 562px;
+  margin-bottom: 560px;
   background-repeat: no-repeat;
   background-size: contain;
   background-image: url("../assets/head.png");
@@ -200,7 +221,7 @@ export default {
 }
 .buy {
   position: fixed;
-  width: 1200px;
+  width: 1199px;
   height: 400px;
   background-color: #f6d891;
 }
@@ -302,6 +323,57 @@ export default {
   height: 15px;
 }
 
+.pokupka .end .buy {
+  background-color: black;
+}
+
+.pokupka .end .buy .about {
+  margin: 37px 0 0 153px;
+  font-size: 20px;
+  line-height: 23px;
+}
+.pokupka .end .buy .pos {
+  text-transform: uppercase;
+  text-align: center;
+  margin-left: 210px;
+  color: #fff;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  margin-bottom: 0;
+}
+.pokupka .end .buy .rectangle {
+  text-align: center;
+  width: 280px;
+  height: 59px;
+  border: 1px solid;
+  border-radius: 3px;
+  margin-top: 60px;
+  margin-left: 170px;
+  background: white;
+}
+
+.pokupka .end .buy .send p {
+  font-size: 16px;
+  line-height: 17px;
+  color: black;
+  text-transform: uppercase;
+}
+.pokupka .buy {
+  display: flex;
+}
+.pokupka .buy .pickt {
+  border-radius: 30px;
+  box-shadow: 0 0px 20px 20px black inset;
+  background-image: url("../assets/pickt.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 458px;
+  height: 300px;
+  margin-top: 30px;
+  margin-left: 80px;
+  margin-bottom: 50px;
+}
 .close {
   position: absolute;
   color: #fff;
@@ -309,9 +381,5 @@ export default {
   cursor: pointer;
   right: 30px;
   top: -75px;
-}
-
-.close .buy {
-  background-color: black;
 }
 </style>
