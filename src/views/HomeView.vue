@@ -11,10 +11,10 @@
         <img src="../assets/group.png" />
       </div>
       <div class="menu">
-        <a href="bio">БИОГРАФИЯ</a>
-        <a href="disck">ДИСКОГРАФИЯ</a>
-        <a href="tickets">БИЛЕТЫ</a>
-        <a href="clips">КЛИПЫ</a>
+        <a href="/">БИОГРАФИЯ</a>
+        <a href="/">ДИСКОГРАФИЯ</a>
+        <a href="/">БИЛЕТЫ</a>
+        <a href="/">КЛИПЫ</a>
       </div>
     </section>
     <section class="last">
